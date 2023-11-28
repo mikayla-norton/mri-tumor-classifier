@@ -8,6 +8,6 @@ seaborn==0.13.0
 scikit-image==0.22.0
 streamlit==1.26.0
 tensorflow==2.13.0
-tensorflow_macos==2.13.0
-tf_nightly_macos==2.16.0.dev20231018
+tensorflow==2.13.0
+tf_nightly==2.16.0.dev20231018
 tqdm==4.66.1
