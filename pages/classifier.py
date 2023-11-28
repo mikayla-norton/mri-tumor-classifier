@@ -42,6 +42,10 @@ if file is not None:
 
 CNN_model = tf.keras.saving.load_model('MRI_CNN.keras')
 prediction = CNN_model.predict(np_image)
-y_class = prediction.argmax(axis=-1)
+y_class = list(prediction.argmax(axis=-1))
+dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
+
+y_class = list(map(dict.get, y_class, y_class))
+
 
 st.write("Predicted Class: ", y_class)
