@@ -34,7 +34,7 @@ if file is not None:
     image = Image.open(file)
     st.image(image, width=500)
     np_image = np.array(image).astype('float32')/255
-    np_image = transform.resize(np_image, (256, 256, 3))
+    np_image = transform.resize(np_image, (150, 150, 3))
     np_image = np.expand_dims(np_image, axis=0)
 
 
