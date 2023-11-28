@@ -41,4 +41,4 @@ if file is not None:
 # CNN_model = tf.keras.saving.load_model("CNN.h5")
 
 CNN_model = tf.keras.saving.load_model('MRI_CNN.keras')
-CNN_model.predict(image)
+CNN_model.predict(np_image)
