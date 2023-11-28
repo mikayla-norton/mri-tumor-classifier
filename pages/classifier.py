@@ -41,4 +41,7 @@ if file is not None:
 # CNN_model = tf.keras.saving.load_model("CNN.h5")
 
 CNN_model = tf.keras.saving.load_model('MRI_CNN.keras')
-CNN_model.predict(np_image)
+prediction = CNN_model.predict(np_image)
+y_class = prediction.argmax(axis=-1)
+
+st.write("Predicted Class: ", y_class)
