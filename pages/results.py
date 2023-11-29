@@ -73,12 +73,15 @@ with st.status("Developing Results"):
     result = pd.read_csv("classification_report.csv")  
     image = Image.open("AccuracyLoss.png")
     summary = pd.read_csv("summary.csv")
+    cm = pd.read_csv("cm.csv")
     st.write("Producing output")
 
 st.write("The figure below displays the changes in training and validation loss and accuracy with each epoch.")
 st.image(image)
 st.write("The model is trained on the test set and returns the following.")
 st.table(result)
+st.write("When compared with the expected labels, the confusion matrix holds the following results")
+st.table(cm)
 
 with st.expander("For the detailed summary of the CNN model, the information is displayed below."):
     CNN_h5.summary(print_fn=lambda x: st.text(x))
