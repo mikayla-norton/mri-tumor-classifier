@@ -77,8 +77,8 @@ with st.status("Developing Results"):
 
 st.write("The figure below displays the changes in training and validation loss and accuracy with each epoch.")
 st.image(image)
-st.write("Finally, the model is trained on the test set and returns the following.")
+st.write("The model is trained on the test set and returns the following.")
 st.table(result)
 
-st.write("For the detailed summary of the CNN model, the information is displayed below.")    
-CNN_h5.summary(print_fn=lambda x: st.text(x))
+with st.expander("For the detailed summary of the CNN model, the information is displayed below."):
+    CNN_h5.summary(print_fn=lambda x: st.text(x))

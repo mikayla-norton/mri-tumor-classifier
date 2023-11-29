@@ -61,13 +61,13 @@ col2.write("A custom head is added on top of the base model. It consists of a Gl
 col2.markdown("#### Model Compilation")
 col2.write("The model is compiled using categorical crossentropy loss and the Adam optimizer to improve accuracy.")
 
-col3.subheader("Model Training")
+col2.subheader("Model Training")
 
-col3.markdown("#### Callbacks")
-col3.write("During training, three callbacks are used - TensorBoard, ModelCheckpoint, and ReduceLROnPlateau.")
+col2.markdown("#### Callbacks")
+col2.write("During training, three callbacks are used - TensorBoard, ModelCheckpoint, and ReduceLROnPlateau.")
 
-col3.markdown("#### Training")
-col3.write("The model is trained using the fit method with training data. Validation data is taken from a subset of the training data.")
+col2.markdown("#### Training")
+col2.write("The model is trained using the fit method with training data. Validation data is taken from a subset of the training data.")
 
 col3.subheader("Model Analysis")
 col3.markdown("#### Visualization")
@@ -76,6 +76,9 @@ col3.write("The training and validation accuracy/loss are visualized using matpl
 col3.markdown("#### Prediction and Evaluation")
 col3.write("The model is used to predict on the test data, and the predictions are converted back from one-hot encoding. The results are displayed and can be used for further evaluation.")
 
+col3.header("User Guide")
+col3.write("To explore the outputs of the model through training and testing stages, navigate to the results tab.")
+col3.write("To test the tool yourself, navigate to the classifier tab and upload an image for testing.")
 
 col3.header("Acknowledgements")
 col3.write("Data source: Kaggle Brain Tumor Classification (MRI)")
