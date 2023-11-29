@@ -45,7 +45,7 @@ prediction = CNN_model.predict(np_image)
 y_class = list(prediction.argmax(axis=-1))
 dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
 
-y_class = list(map(dict.get, y_class, y_class))[0].value
+y_class = list(map(dict.get, y_class, y_class))[0]
 
 
 st.write("Predicted Class: ", y_class)
