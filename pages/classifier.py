@@ -37,15 +37,14 @@ if file is not None:
     np_image = transform.resize(np_image, (150, 150, 3))
     np_image = np.expand_dims(np_image, axis=0)
 
+    CNN_model = tf.keras.saving.load_model('MRI_CNN.keras')
+    prediction = CNN_model.predict(np_image)
+    y_class = list(prediction.argmax(axis=-1))
+    dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
+
+    y_class = list(map(dict.get, y_class, y_class))[0]
+
+
+    st.write("Predicted Class: ", y_class)
 
 # CNN_model = tf.keras.saving.load_model("CNN.h5")
-
-CNN_model = tf.keras.saving.load_model('MRI_CNN.keras')
-prediction = CNN_model.predict(np_image)
-y_class = list(prediction.argmax(axis=-1))
-dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
-
-y_class = list(map(dict.get, y_class, y_class))[0]
-
-
-st.write("Predicted Class: ", y_class)
