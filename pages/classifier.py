@@ -38,6 +38,9 @@ if file is not None:
     image_size = 150
     image = cv2.resize(image,(image_size,image_size))
     image_batch = np.expand_dims(image, axis=0)
+
+    
+    CNN_model = tf.keras.models.load_model('MRI_CNN.h5')
     prediction = CNN_model.predict(image_batch)
     y_class = np.argmax(prediction,axis=1)
 
