@@ -80,7 +80,7 @@ st.write("The figure below displays the changes in training and validation loss 
 st.image(image)
 st.write("The model is trained on the test set and returns the following.")
 st.table(result)
-st.write("When compared with the expected labels, the confusion matrix holds the following results")
+st.write("When compared with the expected labels, the confusion matrix holds the following results, with the true values representing the rows and the predictions mapped to the columns.")
 st.table(cm)
 
 with st.expander("For the detailed summary of the CNN model, the information is displayed below."):
