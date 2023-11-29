@@ -32,8 +32,8 @@ st.text ("[files displayed come from an un-tested and un-trained set of data to 
 if file is not None:
     st.subheader("Uploaded Image Preview:")
     image = Image.open(file)
-    image = image.save("img.jpg")
     st.image(image, width=500)
+    image = image.save("img.jpg")
     image = cv2.imread("img.jpg")
     image_size = 150
     image = cv2.resize(image,(image_size,image_size))
