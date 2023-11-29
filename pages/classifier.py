@@ -34,7 +34,7 @@ if file is not None:
     image = Image.open(file)
     st.image(image, width=500)
     image_size = 150
-    img = cv2.resize(imageg,(image_size,image_size))
+    img = cv2.resize(image,(image_size,image_size))
     # np_image = np.expand_dims(np_image, axis=0)
 
     CNN_model = tf.keras.models.load_model('MRI_CNN.h5')
