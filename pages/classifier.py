@@ -37,7 +37,7 @@ if file is not None:
     np_image = transform.resize(np_image, (150, 150, 3))
     np_image = np.expand_dims(np_image, axis=0)
 
-    CNN_model = tf.keras.saving.load_model('MRI_CNN.keras')
+    CNN_model = tf.keras.models.load_model('MRI_CNN.keras')
     prediction = CNN_model.predict(np_image)
     y_class = list(prediction.argmax(axis=-1))
     dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
