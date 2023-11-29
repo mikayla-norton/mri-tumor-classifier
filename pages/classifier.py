@@ -39,16 +39,17 @@ if file is not None:
     image = cv2.resize(image,(image_size,image_size))
     image_batch = np.expand_dims(image, axis=0)
 
-    
+
     CNN_model = tf.keras.models.load_model('MRI_CNN.h5')
     prediction = CNN_model.predict(image_batch)
     y_class = np.argmax(prediction,axis=1)
 
 
-    dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
+    dict = {0 : 'glioma tumor', 1 : 'no tumor', 2: 'meningioma tumor', 3 : 'pituitary tumor'}
 
     y_class = list(map(dict.get, y_class, y_class))[0]
 
 
     st.write("Predicted Class: ", y_class)
+    st.write("The untrained eye cannot quickly identify the presence or classification of neuro tumors, however, the CNN developed in this project has the ability to detect and classify new images with high accuracy.")
 

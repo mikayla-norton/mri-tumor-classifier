@@ -72,11 +72,13 @@ with st.status("Developing Results"):
     st.write("Selecting results from model training and predictions")
     result = pd.read_csv("classification_report.csv")  
     image = Image.open("AccuracyLoss.png")
+    summary = pd.read_csv("summary.csv")
     st.write("Producing output")
 
-st.write("The summary of the CNN model is shown below:")    
-# st.write(CNN_model.summary())
 st.write("The figure below displays the changes in training and validation loss and accuracy with each epoch.")
 st.image(image)
 st.write("Finally, the model is trained on the test set and returns the following.")
 st.table(result)
+
+st.write("For the detailed summary of the CNN model, the information is displayed below.")    
+CNN_h5.summary(print_fn=lambda x: st.text(x))
