@@ -74,6 +74,7 @@ with st.status("Developing Results"):
     image = Image.open("AccuracyLoss.png")
     summary = pd.read_csv("summary.csv")
     cm = pd.read_csv("cm.csv")
+    cm.set_index('Label', inplace=True)
     st.write("Producing output")
 
 st.write("The figure below displays the changes in training and validation loss and accuracy with each epoch.")
