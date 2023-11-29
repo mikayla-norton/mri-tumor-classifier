@@ -66,8 +66,8 @@ col2.subheader("Model Training")
 col2.markdown("#### Callbacks")
 col2.write("During training, three callbacks are used - TensorBoard, ModelCheckpoint, and ReduceLROnPlateau.")
 
-col2.markdown("#### Training")
-col2.write("The model is trained using the fit method with training data. Validation data is taken from a subset of the training data.")
+col3.markdown("#### Training")
+col3.write("The model is trained using the fit method with training data. Validation data is taken from a subset of the training data.")
 
 col3.subheader("Model Analysis")
 col3.markdown("#### Visualization")
