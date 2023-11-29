@@ -32,15 +32,16 @@ st.text ("[files displayed come from an un-tested and un-trained set of data to 
 if file is not None:
     st.subheader("Uploaded Image Preview:")
     image = Image.open(file)
+    image = image.save("img.jpg")
     st.image(image, width=500)
-    image = cv2.imread(file)
+    image = cv2.imread("img.jpg")
     image_size = 150
     image = cv2.resize(image,(image_size,image_size))
     image_batch = np.expand_dims(image, axis=0)
     prediction = CNN_model.predict(image_batch)
     y_class = np.argmax(prediction,axis=1)
 
-    
+
     dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
 
     y_class = list(map(dict.get, y_class, y_class))[0]
