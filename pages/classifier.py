@@ -33,12 +33,12 @@ if file is not None:
     st.subheader("Uploaded Image Preview:")
     image = Image.open(file)
     st.image(image, width=500)
-    np_image = np.array(image).astype('float32')/255
-    np_image = transform.resize(np_image, (150, 150, 3))
-    np_image = np.expand_dims(np_image, axis=0)
+    image_size = 150
+    img = cv2.resize(imageg,(image_size,image_size))
+    # np_image = np.expand_dims(np_image, axis=0)
 
     CNN_model = tf.keras.models.load_model('MRI_CNN.h5')
-    prediction = CNN_model.predict(np_image)
+    prediction = CNN_model.predict(img)
     y_class = np.argmax(prediction,axis=1)
     # dict = {0 : 'glioma_tumor', 1 : 'no_tumor', 2: 'meningioma_tumor', 3 : 'pituitary_tumor'}
 
