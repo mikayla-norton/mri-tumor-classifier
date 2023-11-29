@@ -68,7 +68,7 @@ if gen:
 with st.status("Developing Results"):
     st.write("Searching for model")
     # CNN_model = tf.keras.models.load_model('MRI_CNN.keras')
-    CNN_h5 = tf.keras.models.load_model('CNN_model.h5')
+    CNN_h5 = tf.keras.models.load_model('MRI_CNN.h5')
     st.write("Selecting results from model training and predictions")
     result = pd.read_csv("classification_report.csv")  
     image = Image.open("AccuracyLoss.png")
