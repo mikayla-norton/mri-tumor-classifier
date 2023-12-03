@@ -1,0 +1,5 @@
+Label,glioma_tumor,no_tumor,meningioma_tumor,pituitary_tumor
+glioma_tumor,90,1,6,0
+no_tumor,0,48,0,0
+meningioma_tumor,1,0,98,2
+pituitary_tumor,0,0,0,81

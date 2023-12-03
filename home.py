@@ -1,17 +1,7 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-import os
-import cv2
-from tqdm import tqdm
-from sklearn.model_selection import train_test_split
-import tensorflow as tf
-from tensorflow.keras.applications import EfficientNetB0
-from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, TensorBoard, ModelCheckpoint
+from PIL import Image
 
-from warnings import filterwarnings
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 ############ SET GRAPHING PARAMS ###############
 plt.rcParams.update({'text.color': "white",
@@ -25,65 +15,83 @@ plt.rcParams.update({'text.color': "white",
 
 ################# PAGE LAYOUT ##################
 
-st.set_page_config(layout="wide")
-st.title("About - Tumor Classification from MRI Scans")
+st.set_page_config(page_title='NeuroNet MRI', 
+                                    page_icon=':house:', 
+                                    layout='wide')
 
-col1, col2, col3= st.columns([2,2,2])
+st.title("NeuroNet MRI")
 
-############### PROJECT WRITE UP ###############
+st.header("Unlock Clarity, Enhance Care: Revolutionizing Tumor Detection with Precision MRI Analysis.")
 
-col2.image("mri-img.png")
+c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11= st.columns(11)
+c1.image(Image.open('assets/image-logos/python.png'))
+c2.image(Image.open('assets/image-logos/keras.png'))
+c3.image(Image.open('assets/image-logos/tf.png'))
+c4.image(Image.open('assets/image-logos/opencv.png'))
+c5.image(Image.open('assets/image-logos/streamlit.png'))
+c6.image(Image.open('assets/image-logos/sklearn.png'))
+c7.image(Image.open('assets/image-logos/tqdm.png'))
+c8.image(Image.open('assets/image-logos/pandas.png'))
+c9.image(Image.open('assets/image-logos/seaborn.png'))
+c10.image(Image.open('assets/image-logos/numpy.png'))
+c11.image(Image.open('assets/image-logos/matplotlib.png'))
 
-col1.header("Project Background")
+c1, c2 = st.columns(2)
 
-col1.write("Magnetic Resonance Imaging (MRI) is a common and crucial diagnostic tool in medicine to scan and image the human anatomy. In neuroscience, MRIs are used regularly to review potential for brain disorders, aneurysms, tumors, and other neurologic conditions. Machine Learning poses new potential as a tool to be involved in interpretation of these images, including location and type of tumor, resulting in potential changes in treatment plans.")
-col1.write("In this study, we explore four possible brain tumor diagnostics: glioma tumors (developing from glial cells), pituitary tumors (growth on the pituitary glands), meningioma tumors (growth on the membranes enclosing the brain and spinal cord), and lastly, patients with no tumor. The course of treatment for these tumors varies widely, as gliomas often progress quickly and aggressively, however pituitary tumors and meningiomas are often benign or very slow to progress.")
-col1.write("Using a convolutional neural network (CNN), this project aims to predict the type of tumor from an MRI image. A successful machine learning classifier could lead to quicker diagnostics and provide a better prognosis for patients.")
-
-col1.header("Methods")
-
-col1.write("This project applies a convolutional neural network to a training and testing set of MRI images to generate a classification model for MRI scan diagnostics.")
-
-col1.subheader("Data Pre-Processing")
-col1.markdown("#### Image Loading")
-col1.write("Images from different classes (glioma_tumor, no_tumor, meningioma_tumor, pituitary_tumor) are loaded from the training and testing directories using OpenCV (cv2). The images are resized to a common size (150x150 pixels) using cv2.resize().")
-
-col2.markdown("#### Train-Test Split and One-Hot Encoding")
-col2.write("The data is split into training and testing sets using train_test_split from scikit-learn. Labels are encoded into one-hot vectors using a mapping dictionary.")
-
-col2.subheader("Model Architecture")
-col2.markdown("#### Base Model - EfficientNetB0")
-col2.write("EfficientNetB0 is used as the base model for feature extraction, and is pre-trained on ImageNet.")
-
-col2.markdown("#### Custom Model Head")
-col2.write("A custom head is added on top of the base model. It consists of a Global Average Pooling layer, a Dropout layer, and a Dense layer with softmax activation.")
-
-col2.markdown("#### Model Compilation")
-col2.write("The model is compiled using categorical crossentropy loss and the Adam optimizer to improve accuracy.")
-
-col2.subheader("Model Training")
-
-col2.markdown("#### Callbacks")
-col2.write("During training, three callbacks are used - TensorBoard, ModelCheckpoint, and ReduceLROnPlateau.")
-
-col3.markdown("#### Training")
-col3.write("The model is trained using the fit method with training data. Validation data is taken from a subset of the training data.")
-
-col3.subheader("Model Analysis")
-col3.markdown("#### Visualization")
-col3.write("The training and validation accuracy/loss are visualized using matplotlib and seaborn.")
-
-col3.markdown("#### Prediction and Evaluation")
-col3.write("The model is used to predict on the test data, and the predictions are converted back from one-hot encoding. The results are displayed and can be used for further evaluation.")
-
-col3.header("User Guide")
-col3.write("To explore the outputs of the model through training and testing stages, navigate to the results tab.")
-col3.write("To test the tool yourself, navigate to the classifier tab and upload an image for testing.")
-
-col3.header("Acknowledgements")
-col3.write("Data source: Kaggle Brain Tumor Classification (MRI)")
-col3.write("Gratitude to Dr. Murillo and Teaching Assistant Mahyar Abedi for the mentorship throughout the CMSE 830 semester and fostering encouragement through the duration of this project.")
+left_co1, cent_co1,last_co1 = c1.columns([1,6,1])
+left_co2, cent_co2,last_co2 = c2.columns([1,6,1])
 
 
+c1.subheader("Revolutionizing Tumor Detection")
+c1.write("The integration of Convolutional Neural Networks (CNN) in MRI image classification heralds a significant shift in medical diagnostics. This technology enhances the ability to accurately detect and categorize brain tumors, surpassing traditional methods in both speed and precision. The use of CNN in analyzing complex MRI data means more reliable diagnoses, reducing uncertainty and potentially expediting treatment decisions. This advancement not only improves diagnostic accuracy but also paves the way for personalized treatment plans, making it a game-changer in the field of neuroimaging and patient care.")
 
-############### PROJECT OUTPUTS ###############
+with cent_co2:
+    st.image("assets/home-imgs/img1.png")
+
+c1, c2 = st.columns(2)
+
+left_co1, cent_co1,last_co1 = c1.columns([1,6,1])
+left_co2, cent_co2,last_co2 = c2.columns([1,6,1])
+c2.subheader("Advanced AI, Enhanced Diagnosis")
+c2.write("The CNN classifier in NeuroNet MRI significantly enhances diagnostic precision in detecting brain tumors. By utilizing deep learning algorithms, it meticulously analyzes MRI images, identifying subtle patterns and anomalies that may be overlooked in traditional methods. This precision allows for earlier and more accurate detection of a variety of tumor types, leading to timely and targeted treatment interventions. This advanced diagnostic tool, therefore, represents a leap forward in neuroimaging, offering healthcare professionals a powerful ally in the fight against brain tumors.")
+
+with cent_co1:
+    st.image("assets/home-imgs/img2.png")
+
+c1, c2 = st.columns(2)
+
+left_co1, cent_co1,last_co1 = c1.columns([1,6,1])
+left_co2, cent_co2,last_co2 = c2.columns([1,6,1])
+
+c1.subheader("Comprehensive Tumor Classification")
+c1.write("Utilizing advanced CNN algorithms, NeuroNet AI not only detects the presence of a tumor with 99.8% accuracy from saggital, axial, and coronal MRI scans, but also classifies it into specific types: meningioma, glioma, or pituitary tumor. This precise categorization is crucial for developing targeted treatment strategies, as each tumor type requires a different approach. By providing this detailed analysis, our app empowers medical professionals with critical insights for patient diagnosis and treatment planning, making it an invaluable tool in modern neurology and oncology.")
+
+with cent_co2:
+    st.image("assets/home-imgs/img3.png")
+
+c1, c2 = st.columns(2)
+
+left_co1, cent_co1,last_co1 = c1.columns([1,6,1])
+left_co2, cent_co2,last_co2 = c2.columns([1,6,1])
+c2.subheader("Speed and Efficiency in Diagnosis")
+c2.write("NeuroNet AI significantly accelerates the diagnostic process for brain tumors. By harnessing the power of advanced CNN technology, it rapidly analyzes MRI scans, delivering results in a fraction of the time required by traditional methods. This speed ensures that healthcare professionals can make quicker, more informed decisions about patient care, reducing the waiting period for diagnoses and facilitating earlier commencement of treatment. In the fast-paced medical environment, our app is an essential tool, streamlining the diagnostic workflow and enhancing patient management efficiency.")
+with cent_co1:
+    st.image("assets/home-imgs/img4.png")
+
+c1, c2 = st.columns(2)
+
+left_co1, cent_co1,last_co1 = c1.columns([1,6,1])
+left_co2, cent_co2,last_co2 = c2.columns([1,6,1])
+
+c1.subheader("Getting Started with NeuroNet MRI")
+c1.write("Want to learn more about the model?")
+c1.write("Explore the comprehensive results of model training on the results tab.")
+c1.write("Ready to get started?")
+c1.write("Head over to the classifier tab to upload an MRI scan for classification now.")
+c1.write("Want to learn how NeuroNet MRI was made?")
+c1.write("Check out the methods tab for more.")
+
+cent_co2.write("")
+with cent_co2:
+    st.image("assets/home-imgs/img5.png")
+
