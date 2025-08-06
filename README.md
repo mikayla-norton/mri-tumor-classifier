@@ -49,13 +49,13 @@ Access the interactive Streamlit application to explore the model’s performanc
 ## Project Structure
 ```
 mri-tumor-classifier/
-├── assets/ # Icons and static images for the app
-├── logs/ # Model checkpoints & training logs
-├── mri-data/ # MRI scan dataset (train/test splits)
-├── pages/ # Subpages of Streamlit app
-├── home.py # Main Streamlit script & model pipeline
-├── requirements.txt# Python dependencies
-└── .gitignore # Patterns for files to ignore
+├── assets/              # Icons and static images for the app
+├── logs/                # Model checkpoints & training logs
+├── mri-data/            # MRI scan dataset (train/test splits)
+├── pages/               # Subpages of Streamlit app
+├── home.py              # Main Streamlit script & model pipeline
+├── requirements.txt     # Python dependencies
+└── .gitignore           # Patterns for files to ignore
 ```
 
 
