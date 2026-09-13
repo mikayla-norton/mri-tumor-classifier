@@ -1,11 +1,16 @@
-matplotlib==3.7.2
-numpy==1.24.3
-opencv_python_headless==4.8.0.76
-pandas==2.0.3
-Pillow==9.0.1
-scikit_learn==1.3.0
-seaborn==0.13.1
-scikit-image==0.22.0
-streamlit==1.26.0
-tensorflow==2.13.0
-tqdm==4.66.1
+# Runtime dependencies for the deployed Streamlit app (inference only).
+# For training/evaluation dependencies, see requirements-training.txt.
+# Target: Python 3.10-3.12.
+#
+# NOTE: this environment has no network access, so these exact patch
+# versions could not be installed/verified here. They're pinned to
+# roughly-current majors/minors as a starting point - before deploying,
+# run `pip install -r requirements.txt` locally/in CI and re-pin to
+# whatever actually resolves and passes the test suite.
+
+streamlit~=1.38
+tensorflow~=2.17
+numpy~=1.26
+opencv-python-headless~=4.10
+Pillow~=10.4
+pandas~=2.2

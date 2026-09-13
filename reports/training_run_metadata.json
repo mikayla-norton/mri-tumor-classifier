@@ -1,0 +1,17 @@
+{
+  "training_config": {
+    "seed": 101,
+    "image_size": 150,
+    "batch_size": 32,
+    "epochs": 15,
+    "validation_split": 0.1,
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "dropout_rate": 0.4,
+    "base_model": "EfficientNetB0",
+    "loss": "categorical_crossentropy"
+  },
+  "n_train": 2583,
+  "n_validation": 287,
+  "tensorflow_version": "2.21.0"
+}

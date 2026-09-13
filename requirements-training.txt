@@ -1,0 +1,14 @@
+# Additional dependencies needed only to run training/evaluate.py.
+# Install both files together for a full training environment:
+#   pip install -r requirements.txt -r requirements-training.txt
+#
+# NOTE: as with requirements.txt, verify these resolve in your own
+# environment - they could not be installed/tested in this sandbox
+# (no network access here).
+
+keras~=3.15
+scikit-learn~=1.5
+tqdm~=4.66
+matplotlib~=3.9
+seaborn~=0.13
+tensorboard~=2.17
